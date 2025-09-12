@@ -31,6 +31,7 @@ values(101, 'Alice', 'alice@example.com', 50000, 1),
 (103, 'Charlie', 'charlie@example.com', 55000, 2),
 (104, 'Diana', 'diana@example.com', 60000, 3)
 
+select * from departments;
 select * from employees;
 
 select name, salary from employees where salary>55000;
@@ -39,3 +40,11 @@ update employees set salary = 60000 where empid = 102;
 update employees set salary = 55000 where empid = 103;
 
 update employees set salary = salary * 1.10 where deptid = 2;
+
+select e.name, e.salary, d.deptname 
+from employees e 
+join departments d 
+on e.DeptId = d.DeptId
+
+insert into employees(empid, name, email, salary, deptid)
+values(105, 'Eve', 'eve@newmail.com', 48000, 2);
